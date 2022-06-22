@@ -1,4 +1,4 @@
-.img{
-    position: absolute;
-    opacity: 0.5%;
-}
+.body {
+    background-color: #fbff90;
+    background-image: url(/imagenes/combi.jpeg);
+  }
