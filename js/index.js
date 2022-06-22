@@ -1,41 +1,52 @@
-/* 
-* El presente algoritmo se utilizará para mostrar el menu y solicitar la cantidad de campers que desea alquilar.
-* Si el usuario ingresa un número que no está entre 1 y 2, se le mostrará un mensaje de error.
-* Si el usuario ingresa un número que es igual a ESC, se le mostrará un mensaje de salida.
-* Luego pedirá la cantidad de adultos con un máximo de la cantidad de personas que puede alquilar.
-* Es condicion que por lo menos haya un adulto para alquilar.
-* Luego pedirá la cantidad de niños con un máximo de la cantidad de personas que puede alquilar.
-* Si el usuario ingresa un número que no está entre 0 y la cantidad de personas que puede alquilar, se le mostrará un mensaje de error.
+/* ALGORITMO PARA ALQUILER DE CAMPER VAN (MOTORHOME)
+
+- El presente algoritmo se utilizará para mostrar un menu de alquiler de Campers y permitir seleccionar el modelo de acuerdo a la cantidad de personas ingresadas.
+- Si el usuario ingresa un número que no está entre 1 y 3, se le mostrará un mensaje de error.
+- Si el usuario ingresa un valor que es igual a ESC, se le mostrará un mensaje de salida.
+- Luego pedirá la cantidad de adultos con un máximo de la cantidad de personas que puede alquilar según el modelo de la Camper.
+- Es condicion que por lo menos haya un adulto para alquilar.
+- Luego pedirá la cantidad de niños con un máximo de la cantidad de personas que puede alquilar según el modelo de la camper y acumulando con la cantidad de adultos ingresadas previamente.
+- Si el usuario ingresa un número que no está entre 0 y la cantidad de personas máximas según modelo de la camper posible de alquilar, se le mostrará un mensaje de error.
+
 */
 
-function unaCamper(adultos, niños){
+function camperUno(adultos, niños){
   let total = adultos + niños;
       if (adultos + niños >= 7 ){
-                  /* Una alerta que se activa cuando el número de personas supera las 6. */
-                  alert('Sobrepasa el limite de personas por camper, contrate dos si desea mas capacidad');
+                  /* Indica un alerta que se activa cuando se supera la cantidad de 6 personas (adultos + niños) ingresadas. */
+                  alert('Sobrepasa el limite de personas para este modelo de camper, contrate el modelo DOS o TRES si desea más capacidad');
               }	
   return total;
 }
 
-function dosCamper(adultos, niños){
+function camperDos(adultos, niños){
   let total = adultos + niños;
   if (adultos + niños >= 13 ){
-                  /* Una alerta que se activa cuando el número de personas supera las 12. */
-                  alert('Sobrepasa el limite de personas máximo por camper, si son mas personas favor contactar a nuestro personal');
+                  /* Indica una alerta que se activa cuando se supera la cantidad de 12 personas (adultos + niños) ingresadas. */
+                  alert('Sobrepasa el limite de personas máximo para este modelo de camper, contrate el modelo TRES si desea mayor capacidad');
               }	
   return total;
 }
 
-function muestraCantidad(total){ //muestra el total de personas
+function camperTres(adultos, niños){
+  let total = adultos + niños;
+  if (adultos + niños >= 19 ){
+                  /* Indica una alerta que se activa cuando se supera la cantidad de 18 personas (adultos + niños)ingresadas. */
+                  alert('Sobrepasa el limite de personas máximo de los modelos de camper disponibles, si son mas personas favor contactar a nuestro personal');
+              }	
+  return total;
+}
+
+function muestraCantidad(total){ //muestra el total de personas (adultos + niños).
   alert('El total de personas ingresadas es : '+ total);
 }
 
-function muestraMenu(menu){ // muestra el menú
-  let opciones = prompt('Número de campers que desea alquilar. (ESC) para salir \n 1. Una camper hasta 6 personas \n 2. Dos campers hasta 12 personas \n');
+function muestraMenu(menu){ // muestra el menú de modelos de Camper a seleccionar.
+  let opciones = prompt('Número de campers que desea alquilar. (ESC) para salir \n 1. Camper UNO hasta 6 personas \n 2. Camper DOS hasta 12 personas \n 3. Camper TRES hasta 18 personas');
   return opciones;
 }
 
-function alquiler(){ //cotizamos el alquiler de las campers en funcion de la cantidad de personas ingresadas
+function alquiler(){ //cotizamos el alquiler de las campers en funcion de la cantidad de personas ingresadas (adultos + niños).
   let opcionSeleccionada = muestraMenu(); 
   while(opcionSeleccionada !== 'ESC'){
       if(!isNaN(opcionSeleccionada !== '')){
@@ -48,13 +59,17 @@ function alquiler(){ //cotizamos el alquiler de las campers en funcion de la can
                //Switch seleccionar la opción
               
               switch(opcionSeleccionada){
-                  case 1: // una camper
-                      let totalUno = unaCamper(adultos, niños);
+                  case 1: // camper uno
+                      let totalUno = camperUno(adultos, niños);
                       muestraCantidad(totalUno);
                       break;
-                  case 2: // dos camper
-                      let totalDos = dosCamper(adultos, niños);
+                  case 2: // camper dos
+                      let totalDos = camperDos(adultos, niños);
                       muestraCantidad(totalDos);
+                      break;
+                  case 3: // camper tres
+                      let totalTres = camperTres(adultos, niños);
+                      muestraCantidad(totalTres);
                       break;
                   default:
                       alert('Opción no válida');
