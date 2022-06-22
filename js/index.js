@@ -23,8 +23,9 @@ function camperDos(adultos, niños){
   let total = adultos + niños;
   if (adultos + niños >= 13 ){
                   /* Indica una alerta que se activa cuando se supera la cantidad de 12 personas (adultos + niños) ingresadas. */
-                  alert('Sobrepasa el limite de personas máximo para este modelo de camper, contrate el modelo TRES si desea mayor capacidad');
-              }	
+                  alert('Excede el limite de personas máximo para este modelo de camper, contrate el modelo TRES si desea mayor capacidad');
+              }
+              
   return total;
 }
 
@@ -32,7 +33,7 @@ function camperTres(adultos, niños){
   let total = adultos + niños;
   if (adultos + niños >= 19 ){
                   /* Indica una alerta que se activa cuando se supera la cantidad de 18 personas (adultos + niños)ingresadas. */
-                  alert('Sobrepasa el limite de personas máximo de los modelos de camper disponibles, si son mas personas favor contactar a nuestro personal');
+                  alert('Excede el limite de personas máximo de los modelos de camper disponibles, si son mas personas favor contactarse vía correo electrónico a lococamper@gmail.com. Muchas gracias');
               }	
   return total;
 }
@@ -42,7 +43,7 @@ function muestraCantidad(total){ //muestra el total de personas (adultos + niño
 }
 
 function muestraMenu(menu){ // muestra el menú de modelos de Camper a seleccionar.
-  let opciones = prompt('Número de campers que desea alquilar. (ESC) para salir \n 1. Camper UNO hasta 6 personas \n 2. Camper DOS hasta 12 personas \n 3. Camper TRES hasta 18 personas');
+  let opciones = prompt('Modelo de campers que desea alquilar. (ESC) para salir \n 1. Camper UNO hasta 6 personas \n 2. Camper DOS hasta 12 personas \n 3. Camper TRES hasta 18 personas');
   return opciones;
 }
 
